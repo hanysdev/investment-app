@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Investment Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div>
+    <canvas id="investmentChart" width="800" height="400"></canvas>
+</div>
+
+<script th:inline="javascript">
+    var results = /*[[${results}]]*/ [];
+    var months = results.map(result => result.month);
+    var values = results.map(result => result.value);
+    var initialValue = /*[[${initialValue}]]*/ 0;
+
+    var ctx = document.getElementById('investmentChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Investment Value Over Time',
+                borderColor: 'rgb(75, 192, 192)',
+                data: values,
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                },
+                y: {
+                    min: initialValue
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
