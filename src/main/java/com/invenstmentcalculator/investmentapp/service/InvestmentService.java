@@ -14,6 +14,7 @@ public class InvestmentService {
                             int numberOfYears,
                             int capitalizationFrequency){
         List<InvestmentResult> results = new ArrayList<>();
+        results.add(new InvestmentResult(0,initialAmount));
         double currentAmount = initialAmount;
 
         for (int month = 1; month <= numberOfYears * 12; month++) {
