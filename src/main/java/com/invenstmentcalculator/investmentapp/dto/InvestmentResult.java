@@ -1,19 +1,15 @@
 package com.invenstmentcalculator.investmentapp.dto;
 
+import lombok.Getter;
+
+@Getter
 public class InvestmentResult {
-    private int month;
-    private double value;
+    private final int month;
+    private final double value;
 
     public InvestmentResult(int month, double value) {
         this.month = month;
         this.value = value;
     }
 
-    public int getMonth() {
-        return month;
-    }
-
-    public double getValue() {
-        return value;
-    }
 }

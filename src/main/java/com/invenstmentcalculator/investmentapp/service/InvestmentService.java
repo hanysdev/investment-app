@@ -25,7 +25,7 @@ public class InvestmentService {
         return results;
     }
 
-    private double calculateInvestmentValue(double initialAmount, double interestRate, double numberOfYears) {
+    double calculateInvestmentValue(double initialAmount, double interestRate, double numberOfYears) {
         return initialAmount * Math.pow(1 + interestRate / 100 / 12, numberOfYears * 12);
     }
 
